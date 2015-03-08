@@ -1,9 +1,7 @@
 package swingDarts;
 
 import gnu.io.*;
-
 import java.io.*;
-import java.math.BigDecimal;
 
 public class SerialCom {
 	// 入出力ストリーム

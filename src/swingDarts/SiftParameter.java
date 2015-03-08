@@ -3,24 +3,6 @@ package swingDarts;
 import java.math.BigDecimal;
 
 public class SiftParameter {
-	/*
-	BigDecimal temp = new BigDecimal(20.0);
-	
-	BigDecimal Positive = new BigDecimal(0);
-	BigDecimal Negative = new BigDecimal(1);
-	BigDecimal DeltaT = new BigDecimal(0.01);
-	BigDecimal DeltaTinv = new BigDecimal(100.0);
-	BigDecimal COUNTTHR = new BigDecimal(5);
-	BigDecimal COUNTLIM = new BigDecimal(100);
-	BigDecimal ROTTHR = DeltaTinv.multiply(temp);
-	BigDecimal GUARD = new BigDecimal(2.0);
-
-	BigDecimal i;
-	BigDecimal t;
-	BigDecimal ax, ay, az, gx, gy, gz, avrms;
-	BigDecimal rx, ry, rz, rzp, gxp, gyp, gzp;
-	BigDecimal px, py, pz, ctx, cty, ctz, peakt_gz, stz;
-	*/
 	
 	final int Positive = 0;
 	final int Negative = 1;
@@ -186,6 +168,34 @@ public class SiftParameter {
 			}
 		}
 		i++;
+	}
+	
+	public void resetParameter() {
+		result = "";
+		count = 0;
+		firstNumX = 0;
+		firstNumZ = 0;
+		secondNumX = 0;
+		secondNumZ = 0;
+		thirdNumX = 0;
+		thirdNumZ = 0;
+		first = "";
+		firstX = "";
+		second = "";
+		secondX = "";
+		third = "";
+		thirdX = "";
+		t = 0.0;
+		i = 0;
+		ax = ay = az = 0.0;
+		gx = gy = gz = 0.0;
+		avrms = 0.0;
+		ctx = cty = ctz = 0;
+		rx = ry = rz = 0.0;
+		px = py = pz = Positive;
+		gxp = gyp = gzp = 0.0;
+		rzp = 0.0;
+		peakt_gz = stz = 0;
 	}
 	 
 }

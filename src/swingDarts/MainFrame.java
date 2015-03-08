@@ -28,6 +28,7 @@ public class MainFrame extends JFrame implements Runnable {
 	JLabel thirdThrowNumberX;
 	JLabel resultLabel;
 	JLabel resultNumber;
+	JButton resetButton;
 
 	DefaultCategoryDataset gDataX = new DefaultCategoryDataset();
 	DefaultCategoryDataset gDataZ = new DefaultCategoryDataset();
@@ -60,6 +61,13 @@ public class MainFrame extends JFrame implements Runnable {
 		closeButton.setBounds(160, 20, 100, 40);
 		closeButton.addActionListener(new closeListener());
 		getContentPane().add(closeButton);
+		
+		// resetボタン
+		resetButton = new JButton("reset");
+		resetButton.setFont(new Font("Meiryo UI", Font.PLAIN, 20));
+		resetButton.setBounds(40, 620, 100, 40);
+		resetButton.addActionListener(new resetListener());
+		getContentPane().add(resetButton);
 
 		// 通信用通知ラベル作成
 		notificationLabel = new JLabel();
@@ -188,7 +196,7 @@ public class MainFrame extends JFrame implements Runnable {
 	public class openListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			serialCom.SerialOpen("COM7", 115200);
+			serialCom.SerialOpen("COM6", 115200);
 			notificationLabel.setText(serialCom.portStatus);
 		}
 	}
@@ -198,6 +206,17 @@ public class MainFrame extends JFrame implements Runnable {
 		public void actionPerformed(ActionEvent e) {
 			serialCom.SerialClose();
 			notificationLabel.setText(serialCom.portStatus);
+		}
+	}
+	
+	public class resetListener implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			for (int i = 0; i < 300; i++) {
+				serialCom.dartsData.gDataX[i] = 0;
+				serialCom.dartsData.gDataZ[i] = 0;
+			}
+			serialCom.sift.resetParameter();
 		}
 	}
 
